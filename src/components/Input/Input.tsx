@@ -1,6 +1,6 @@
 import React, { FC, Fragment } from "react";
 import styled from "styled-components";
-import { InputProps } from "./Input.types";
+import { InputProps } from "./input.types";
 
 const StyledInput = styled.input<InputProps>`
   height: 40px;
