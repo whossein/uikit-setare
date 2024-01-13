@@ -1,4 +1,4 @@
-This is a package written for training and practice, the following technologies are used in this package:
+This is a package written for use Setareyek apps, the following technologies are used in this package:
 
 - React js 18.2
 - Typescript
@@ -7,7 +7,6 @@ This is a package written for training and practice, the following technologies 
 - StoryBook
 - Jest
 
-Thanks to blog rocket logrocket.com
-https://blog.logrocket.com/how-to-build-component-library-react-typescript
-
 I hope it helps you ❤️
+
+https://dev.to/canastro/react-ui-kit-with-ts-styled-components-adding-a-theme-part-ii-of-ii-2745
