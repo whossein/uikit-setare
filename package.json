@@ -1,7 +1,7 @@
 {
   "name": "uikit-new",
   "version": "1.0.0",
-  "description": "",
+  "description": "simple React uikit package with ts,sc and sb!",
   "scripts": {
     "build": "rimraf dist && rollup -c --bundleConfigAsCjs",
     "storybook": "storybook dev -p 6006",
@@ -12,9 +12,15 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "train",
+    "uikit",
+    "package",
+    "rollup"
+  ],
+  "author": "Hossein Aghatabar",
   "license": "ISC",
+  "homepage": "https://github.com/whossein/simple-uikit-react-package",
   "devDependencies": {
     "@babel/preset-env": "^7.23.8",
     "@babel/preset-react": "^7.23.3",
