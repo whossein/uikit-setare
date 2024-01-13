@@ -1,6 +1,6 @@
 {
   "name": "uikit-new",
-  "version": "1.0.0",
+  "version": "0.0.1-beta.1",
   "description": "simple React uikit package with ts,sc and sb!",
   "scripts": {
     "build": "rimraf dist && rollup -c --bundleConfigAsCjs",
