@@ -25,4 +25,6 @@ export interface ICommon {
 
 export type ITheme = IColors & ICommon;
 
+export type TThemeMode = "light" | "dark";
+
 export default ITheme;

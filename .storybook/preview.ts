@@ -1,17 +1,14 @@
 import type { Preview } from "@storybook/react";
 import { withThemeProvider } from "storybook-addon-theme-provider";
+import createTheme from "../src/theme";
 import { Provider } from "./Provider";
-import createTheme, { ITheme } from "../src/theme";
+import ITheme from "../src/types/theme.types";
 
 const theme1 = createTheme({
-  palette: {
-    primary: "green",
-  },
+  name: "light",
 });
 const theme2 = createTheme({
-  palette: {
-    primary: "red",
-  },
+  name: "dark",
 });
 
 const preview: Preview = {
