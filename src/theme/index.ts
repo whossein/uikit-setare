@@ -1,35 +1,53 @@
-import createPalette, { Palette, PaletteInput } from "./create-palette";
-import createTypography, {
-  Typography,
-  TypographyInput,
-} from "./create-typography";
-import zIndex, { ZIndex } from "./z-index";
-import spacing, { Spacing } from "./spacing";
+import { IColors } from "../types/colors.types";
+import ITheme, { IShadow, TDirection } from "../types/theme.types";
+import createPalette, { TPaletteInput } from "./create-palette";
+import { TypographyInput } from "./create-typography";
+import defaultCommon, {
+  defaultDirection,
+  defaultShadow,
+} from "./default/default-common";
+import {
+  defaultBgColor,
+  defaultBorderColor,
+  defaultTextColor,
+  defaultTransparentColor,
+} from "./default/default-light-colors";
 
-export interface ITheme {
-  palette: Palette;
-  typography: Typography;
-  spacing: Spacing;
-  zIndex: ZIndex;
-}
-
-export interface ThemeInput {
-  palette?: PaletteInput;
+export type TThemeInput = TPaletteInput & {
+  name: string;
   typography?: TypographyInput;
-}
+  direction?: TDirection;
+  isDark?: boolean;
+  shadow?: IShadow;
+};
 
-const createTheme = (options: ThemeInput): ITheme => {
-  const { palette: paletteInput = {}, typography: typographyInput = {} } =
-    options || {};
+const createTheme = (options: TThemeInput): ITheme => {
+  const {
+    bgColor = defaultBgColor,
+    borderColor = defaultBorderColor,
+    textColor = defaultTextColor,
+    transparentColor = defaultTransparentColor,
+    direction = defaultDirection,
+    isDark = false,
+    shadow = defaultShadow,
+    name,
+  } = options || {};
 
-  const palette = createPalette(paletteInput);
-  const typography = createTypography(typographyInput);
+  const palette: IColors = createPalette({
+    bgColor,
+    borderColor,
+    textColor,
+    transparentColor,
+  });
 
   return {
-    palette,
-    spacing,
-    typography,
-    zIndex,
+    ...palette,
+    ...defaultCommon,
+    direction,
+    isDark,
+    isLight: !isDark,
+    name,
+    shadow,
   };
 };
 

@@ -1,30 +1,37 @@
-export interface Palette {
-  white: string;
-  grey: string;
-  black: string;
-  primary: string;
-  secondary: string;
-}
+import {
+  IBGColor,
+  IBorderColor,
+  IColors,
+  ITextColor,
+  ITransparent,
+} from "../types/colors.types";
+import {
+  defaultBgColor,
+  defaultBorderColor,
+  defaultTextColor,
+  defaultTransparentColor,
+} from "./default/default-light-colors";
 
-export type PaletteInput = {
-  +readonly [K in keyof Palette]+?: Palette[K];
+export type TPaletteInput = {
+  bgColor?: IBGColor;
+  textColor?: ITextColor;
+  borderColor?: IBorderColor;
+  transparentColor?: ITransparent;
 };
 
-const createPalette = (palette: PaletteInput): Palette => {
-  const {
-    white = "#fff",
-    grey = "#f7f9fa",
-    black = "#222",
-    primary = "#6d30e7",
-    secondary = "#dfdded",
+const createPalette = (palette: TPaletteInput): IColors => {
+  let {
+    bgColor = defaultBgColor,
+    borderColor = defaultBorderColor,
+    textColor = defaultTextColor,
+    transparentColor = defaultTransparentColor,
   } = palette;
 
   return {
-    white,
-    grey,
-    black,
-    primary,
-    secondary,
+    bgColor,
+    borderColor,
+    textColor,
+    transparentColor,
   };
 };
 
