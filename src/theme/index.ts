@@ -1,7 +1,6 @@
 import { IColors } from "../types/colors.types";
 import ITheme, { IShadow, TDirection } from "../types/theme.types";
 import createPalette, { TPaletteInput } from "./create-palette";
-import { TypographyInput } from "./create-typography";
 import defaultCommon, {
   defaultDirection,
   defaultShadow,
@@ -15,7 +14,7 @@ import {
 
 export type TThemeInput = TPaletteInput & {
   name: string;
-  typography?: TypographyInput;
+  // typography?: TypographyInput;
   direction?: TDirection;
   isDark?: boolean;
   shadow?: IShadow;
