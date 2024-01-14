@@ -12,9 +12,7 @@ export default meta;
 
 type Story = StoryObj<typeof Base>;
 
-export const Primary: Story = (args) => (
-  <Base data-testId="InputField-id2" {...args} />
-);
+export const Primary: Story = (args) => <Base {...args} />;
 Primary.args = {
   children: "label",
 };
