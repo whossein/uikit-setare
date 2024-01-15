@@ -3,12 +3,17 @@ import { withThemeProvider } from "storybook-addon-theme-provider";
 import createTheme from "../src/theme";
 import { Provider } from "./Provider";
 import ITheme from "../src/types/theme.types";
+import dark from "../src/theme/default/default-dark-colors";
 
-const theme1 = createTheme({
+const lightTheme = createTheme({
   name: "light",
 });
-const theme2 = createTheme({
+const darkTheme = createTheme({
   name: "dark",
+  bgColor: dark.bgColor,
+  borderColor: dark.borderColor,
+  textColor: dark.textColor,
+  transparentColor: dark.transparentColor,
 });
 
 const preview: Preview = {
@@ -26,15 +31,14 @@ const preview: Preview = {
     selectedTheme: "theme1",
     themes: [
       {
-        // Provide a name for the theme.
-        name: "theme1",
-        color: "green",
-        themeObject: theme1,
+        name: "light",
+        themeObject: lightTheme,
+        color: "white",
       },
       {
-        name: "theme2",
-        color: "red",
-        themeObject: theme2,
+        name: "dark",
+        themeObject: darkTheme,
+        color: "black",
       },
     ],
   },

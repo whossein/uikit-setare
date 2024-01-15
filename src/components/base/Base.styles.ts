@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
-import { BaseProps } from "./Base.types";
+import { IBaseProps } from "./Base.types";
 
-export const BaseStyles = styled.span<BaseProps>`
+export const BaseStyles = styled.span<IBaseProps>`
   box-sizing: border-box;
   max-width: 100%;
   ${({ isfixbottom, fillpadding }) => {

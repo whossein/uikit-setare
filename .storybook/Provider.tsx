@@ -1,12 +1,16 @@
 import React, { ReactNode } from "react";
-import { ThemeProvider } from "styled-components";
+import { ITheme, UikitProvider } from "../src";
 
 export const Provider = <TTheme,>({
   children,
   theme,
 }: {
   children?: ReactNode;
-  theme?: TTheme;
+  theme?: ITheme;
 }) => {
-  return <ThemeProvider theme={theme || {}}>{children}</ThemeProvider>;
+  return (
+    <UikitProvider themeLight={theme} checkOsTheme={false}>
+      {children}
+    </UikitProvider>
+  );
 };
