@@ -1,8 +1,8 @@
 import React from "react";
 import { BaseStyles } from "./Base.styles";
-import { BaseProps } from "./Base.types";
+import { IBaseProps } from "./Base.types";
 
-const Base = React.forwardRef((props: BaseProps, ref: any) => {
+const Base = React.forwardRef((props: IBaseProps, ref: any) => {
   const {
     component = "div",
     className = "",

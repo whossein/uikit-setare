@@ -13,7 +13,7 @@ import {
 } from "../../types";
 import { MouseEventHandler } from "react";
 
-export interface BaseProps {
+export interface IBaseProps {
   mt?: ISpacing;
   mb?: ISpacing;
   mr?: ISpacing;
@@ -46,14 +46,26 @@ export interface BaseProps {
   minHeight?: number | string;
   maxWidth?: number | string;
   maxHeight?: number | string;
-  flex?: number;
+  /** The flex property is a shorthand property for:
+    flex-grow
+    flex-shrink
+    flex-basis 
+    */
+  flex?:
+    | number
+    | `${number}`
+    | `${number} ${number}`
+    | `${number} ${number} ${number}px`
+    | `${number} ${number} ${number}%`
+    | `${number} ${number} ${number}em`
+    | `${number} ${number} ${number}rem`;
   rotate?: number;
   position?: "static" | "relative" | "fixed" | "absolute" | "sticky";
   needPaddingTop?: boolean;
   isfixbottom?: "true" | "false";
   fillpadding?: "true" | "false";
   enableIphonePadding?: boolean;
-  component?: string;
+  component?: React.ComponentType | string;
   className?: string;
   children?: React.ReactNode | JSX.Element | JSX.Element[];
   style?: any;
