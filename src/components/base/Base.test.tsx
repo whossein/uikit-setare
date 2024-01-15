@@ -2,14 +2,14 @@ import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 import React from "react";
 import Base from "./Base";
-import ThemeProvider from "../theme-provider";
+import UikitProvider from "../uikit-provider";
 
 describe("Running Test for Base Component", () => {
   test("Check Base Component", () => {
     render(
-      <ThemeProvider>
+      <UikitProvider>
         <Base> Base Component </Base>
-      </ThemeProvider>
+      </UikitProvider>
     );
   });
 });

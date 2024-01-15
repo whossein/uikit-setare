@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { ThemeProvider as Provider } from "styled-components";
 import createTheme from "../../theme";
-import { IThemeProvider } from "./ThemeProvider.types";
+import { IThemeProvider } from "./UikitProvider.types";
 import { useGetTheme } from "../../hooks";
 import { ITheme, TThemeMode } from "../../types";
 import { dark, light } from "../../theme/default";
@@ -10,7 +10,7 @@ import { isSupportMatchMedia } from "../../utils";
 const lightTheme = createTheme(light);
 const lightDark = createTheme(dark);
 
-export const ThemeProvider = (props: IThemeProvider) => {
+export const UikitProvider = (props: IThemeProvider) => {
   const {
     checkOsTheme = true,
     currentTheme = "light",
@@ -71,4 +71,4 @@ export const ThemeProvider = (props: IThemeProvider) => {
   return <Provider theme={activeTheme}> {children} </Provider>;
 };
 
-export default ThemeProvider;
+export default UikitProvider;
