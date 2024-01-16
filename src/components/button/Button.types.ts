@@ -1,7 +1,8 @@
+import { MouseEventHandler } from "react";
 import { IBaseProps } from "../base/Base.types";
 
 type TPureButton = IBaseProps &
-  Omit<React.HTMLProps<HTMLButtonElement>, "size" | "label">;
+  Omit<React.HTMLProps<HTMLButtonElement>, "size" | "label" | "onClick">;
 
 export interface IButtonProps extends TPureButton {
   variant?: "fill" | "outlined" | "text";
@@ -17,4 +18,7 @@ export interface IButtonProps extends TPureButton {
   label?: string | null;
   loadingSize?: number;
   navigate?: (link: string) => void;
+  onClick?: (
+    e: MouseEventHandler | MouseEventHandler<HTMLButtonElement>
+  ) => void;
 }
