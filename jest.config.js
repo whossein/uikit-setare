@@ -5,8 +5,9 @@
 
 const config = {
   verbose: true,
-  preset: "ts-jest",
+  preset: "ts-jest", // for typescript issues
   testEnvironment: "jsdom",
+  setupFiles: ["jest-canvas-mock"], // for react lottie package error
   // moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
   //   prefix: "<rootDir>",
   // }),

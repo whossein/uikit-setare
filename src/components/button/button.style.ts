@@ -1,8 +1,10 @@
 import styled, { css } from "styled-components";
 import { BaseStyles } from "../base/Base.styles";
-import { IButtonProps } from "./Button.types";
+import { IButtonProps, TColorType } from "./Button.types";
 
-export const ButtonStyle = styled(BaseStyles)<IButtonProps>`
+export const ButtonStyles = styled(BaseStyles)<
+  Partial<IButtonProps & { colortype: TColorType }>
+>`
   border: none;
   border-radius: 0;
   cursor: pointer;
@@ -149,8 +151,8 @@ export const ButtonStyle = styled(BaseStyles)<IButtonProps>`
     }
   }}
   //change background color
-  ${({ colorType, theme, bgColor }) => {
-    switch (colorType) {
+  ${({ colortype, theme, bgColor }) => {
+    switch (colortype) {
       case "green":
         return css`
           background-color: ${theme.bgColor[10]};

@@ -1,9 +1,9 @@
 import React from "react";
 import Loading from "../loading/Loading";
-import { ButtonStyle } from "./button.style";
 import { IButtonProps } from "./Button.types";
 import { MouseEventHandler } from "react";
-import Flex from "../";
+import Flex from "../flex";
+import { ButtonStyles } from "./Button.style";
 
 const Button = (props: IButtonProps) => {
   const {
@@ -19,18 +19,18 @@ const Button = (props: IButtonProps) => {
     onClick,
     startIcon,
     endIcon,
-    colorType = "primary",
     href,
     link,
     margin = "0 auto",
     fontSize,
     navigate,
+    colorType = "primary",
     ...otherProps
   } = props;
   // TODO: fix height & width Loading
 
   return (
-    <ButtonStyle
+    <ButtonStyles
       as={component}
       className={`morph-button ${className}`}
       variant={variant}
@@ -57,7 +57,7 @@ const Button = (props: IButtonProps) => {
           // console.error(link);
         }
       }}
-      colorType={colorType}
+      colortype={colorType}
       margin={margin}
       {...otherProps}
     >
@@ -80,7 +80,7 @@ const Button = (props: IButtonProps) => {
           )}
         </Flex>
       )}
-    </ButtonStyle>
+    </ButtonStyles>
   );
 };
 
