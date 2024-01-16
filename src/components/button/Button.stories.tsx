@@ -94,5 +94,5 @@ Disabled.args = {
 export const Loading: Story = (args) => <Button {...args} />;
 Loading.args = {
   children: "label",
-  loading: 1,
+  loading: true,
 };
