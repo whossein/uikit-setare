@@ -35,7 +35,7 @@ const Button = (props: IButtonProps) => {
       className={`morph-button ${className}`}
       variant={variant}
       size={size}
-      loading={loading ? 1 : 0}
+      $loading={loading ? "true" : "false"}
       disabled={disabled}
       onClick={(e: MouseEventHandler) => {
         if (disabled || loading) {

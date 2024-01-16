@@ -1,9 +1,10 @@
 import styled, { css } from "styled-components";
 import { BaseStyles } from "../base/Base.styles";
 import { IButtonProps, TColorType } from "./Button.types";
+import { TBooleanString } from "../../types";
 
 export const ButtonStyles = styled(BaseStyles)<
-  Partial<IButtonProps & { colortype: TColorType }>
+  Partial<IButtonProps & { colortype: TColorType; $loading: TBooleanString }>
 >`
   border: none;
   border-radius: 0;
@@ -167,8 +168,8 @@ export const ButtonStyles = styled(BaseStyles)<
         `;
     }
   }}
-  ${({ loading }) => {
-    if (loading) {
+  ${({ $loading }) => {
+    if ($loading) {
       return css`
         cursor: progress;
       `;
