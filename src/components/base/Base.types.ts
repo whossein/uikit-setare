@@ -62,8 +62,8 @@ export interface IBaseProps {
   rotate?: number;
   position?: "static" | "relative" | "fixed" | "absolute" | "sticky";
   needPaddingTop?: boolean;
-  isfixbottom?: "true" | "false";
-  fillpadding?: "true" | "false";
+  isFixBottom?: boolean;
+  fillPadding?: boolean;
   enableIphonePadding?: boolean;
   component?: React.ComponentType | string;
   className?: string;

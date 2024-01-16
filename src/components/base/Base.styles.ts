@@ -1,7 +1,12 @@
 import styled, { css } from "styled-components";
+import { TBooleanString } from "../../types";
 import { IBaseProps } from "./Base.types";
 
-export const BaseStyles = styled.span<IBaseProps>`
+export const BaseStyles = styled.span<
+  Partial<
+    IBaseProps & { isfixbottom: TBooleanString; fillpadding: TBooleanString }
+  >
+>`
   box-sizing: border-box;
   max-width: 100%;
   ${({ isfixbottom, fillpadding }) => {

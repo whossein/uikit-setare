@@ -9,7 +9,12 @@ export const Provider = <TTheme,>({
   theme?: ITheme;
 }) => {
   return (
-    <UikitProvider themeLight={theme} checkOsTheme={false}>
+    <UikitProvider
+      themeLight={theme}
+      themeDark={theme}
+      currentTheme={theme?.name}
+      checkOsTheme={false}
+    >
       {children}
     </UikitProvider>
   );
