@@ -8,13 +8,13 @@ import { dark, light } from "../../theme/default";
 import { isSupportMatchMedia } from "../../utils";
 
 const lightTheme = createTheme(light);
-const lightDark = createTheme(dark);
+const darkTheme = createTheme(dark);
 
 export const UikitProvider = (props: IThemeProvider) => {
   const {
     checkOsTheme = true,
     currentTheme = "light",
-    themeDark = lightDark,
+    themeDark = darkTheme,
     themeLight = lightTheme,
     onThemeChange,
     children,
