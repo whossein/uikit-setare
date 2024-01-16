@@ -35,7 +35,7 @@ export const BaseStyles = styled.span<
     }
   }}
   ${({ theme, bgColor }) => {
-    if (bgColor && theme.bgColor[bgColor]) {
+    if (bgColor && theme.bgColor && theme.bgColor[bgColor]) {
       return css`
         background: ${theme.bgColor[bgColor]};
       `;
@@ -44,7 +44,7 @@ export const BaseStyles = styled.span<
     return null;
   }}
   ${({ theme, bgColorOperator }) => {
-    if (bgColorOperator && theme.operator[bgColorOperator]) {
+    if (bgColorOperator && theme.operator && theme.operator[bgColorOperator]) {
       return css`
         background: ${theme.operator[bgColorOperator]};
       `;
@@ -53,7 +53,11 @@ export const BaseStyles = styled.span<
     return null;
   }}
   ${({ theme, transparentColor }) => {
-    if (transparentColor && theme.transparentColor[transparentColor]) {
+    if (
+      transparentColor &&
+      theme.transparentColor &&
+      theme.transparentColor[transparentColor]
+    ) {
       return css`
         background: ${theme.transparentColor[transparentColor]};
       `;
@@ -62,7 +66,7 @@ export const BaseStyles = styled.span<
     return null;
   }}
   ${({ theme, textColor = 1 }) => {
-    if (textColor && theme.textColor[textColor]) {
+    if (textColor && theme.textColor && theme.textColor[textColor]) {
       return css`
         color: ${theme.textColor[textColor]};
       `;
@@ -71,7 +75,7 @@ export const BaseStyles = styled.span<
     return null;
   }}
   ${({ theme, shadow }) => {
-    if (shadow && theme.shadow[shadow]) {
+    if (shadow && theme.shadow && theme.shadow[shadow]) {
       return css`
         box-shadow: ${theme.shadow[shadow]};
       `;
@@ -81,7 +85,7 @@ export const BaseStyles = styled.span<
   }}
 
   ${({ theme, fontWeight = "regular" }) => {
-    if (fontWeight && theme.fontWeight[fontWeight]) {
+    if (fontWeight && theme.fontWeight && theme.fontWeight[fontWeight]) {
       return css`
         font-weight: ${theme.fontWeight[fontWeight]};
       `;
@@ -118,7 +122,12 @@ ${({ textAlign }) => {
   }}
   
   ${({ borderColor, borderSize = "1", theme }) => {
-    if (borderColor && theme.borderColor[borderColor]) {
+    if (
+      borderColor &&
+      borderSize &&
+      theme.borderColor &&
+      theme.borderColor[borderColor]
+    ) {
       return css`
         border: solid ${borderSize}px ${theme.borderColor[borderColor]};
       `;

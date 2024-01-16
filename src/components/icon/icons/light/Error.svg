@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16.004" height="16" viewBox="0 0 16.004 16">
+    <defs>
+        <style>
+            .prefix__cls-2{fill:#fff}
+        </style>
+    </defs>
+    <g id="prefix__error" transform="translate(272.7 -56.96)">
+        <g id="prefix__Rectangle_2539" data-name="Rectangle 2539" style="opacity:0">
+            <path id="prefix__Rectangle_4369" d="M0 0H16V16H0z" class="prefix__cls-2" data-name="Rectangle 4369" transform="translate(-272.7 56.96)"/>
+        </g>
+        <g id="prefix__Path_1212" data-name="Path 1212">
+            <path id="prefix__Path_4741" d="M-263.5 58.16a1.376 1.376 0 0 0-1.874-.526 1.37 1.37 0 0 0-.526.526l-6.6 12.152a1.425 1.425 0 0 0 .5 1.951 1.422 1.422 0 0 0 .7.2h13.208a1.423 1.423 0 0 0 1.4-1.45 1.422 1.422 0 0 0-.2-.7z" data-name="Path 4741" style="fill:#e54660"/>
+        </g>
+        <g id="prefix__Rectangle_2204" data-name="Rectangle 2204">
+            <path id="prefix__Path_4742" d="M-264.7 61.461a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1 1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1z" class="prefix__cls-2" data-name="Path 4742"/>
+        </g>
+        <g id="prefix__Rectangle_2205" data-name="Rectangle 2205">
+            <path id="prefix__Path_4743" d="M-264.7 68.793a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1z" class="prefix__cls-2" data-name="Path 4743"/>
+        </g>
+    </g>
+</svg>
