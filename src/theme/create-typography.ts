@@ -19,7 +19,8 @@
 //   htmlFontSize?: number;
 // };
 
-// const defaultFontFamily = "'PX Grotesk', sansSerif";
+export const DefaultPersianFontFamily = "'IranYekan', sansSerif";
+export const DefaultEnglishFontFamily = "'Roboto', sansSerif";
 
 // const createTypography = (typography: TypographyInput): Typography => {
 //   const {
@@ -54,5 +55,3 @@
 // };
 
 // export default createTypography;
-
-export {};

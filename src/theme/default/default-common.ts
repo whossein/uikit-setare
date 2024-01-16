@@ -50,6 +50,7 @@ export const defaultCommon: ICommon = {
   name: "default-theme",
   operator: defaultOperatorColor,
   shadow: defaultShadow,
+  autoSetLtrFontFamily: true,
 };
 
 export default defaultCommon;
