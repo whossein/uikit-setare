@@ -5,3 +5,4 @@ export { default as Button } from "./button";
 export { default as Loading } from "./loading";
 export { default as Spinner } from "./spinner";
 export { default as Icon } from "./icon";
+export { default as RadioButton } from "./radio-button"
