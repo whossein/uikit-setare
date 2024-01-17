@@ -1,6 +1,5 @@
 import { MouseEventHandler } from "react";
 import { IBaseProps } from "../base/Base.types";
-import { TBooleanString } from "../../types";
 
 type TPureButton = IBaseProps &
   Omit<React.HTMLProps<HTMLButtonElement>, "size" | "label" | "onClick">;

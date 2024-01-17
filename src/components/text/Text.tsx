@@ -18,19 +18,16 @@ export default function Text(props: ITextProps) {
 
   return (
     <TextStyle
-      as={component}
-      variant={variant}
-      className={`morph-text morph-text-${variant} ${className}`}
-      fontWeight={fontWeight}
-      lineHeight={lineHeight}
-      whiteSpace={whiteSpace}
-      useLtrFontFamily={useLtrFontFamily ? "true" : "false"}
-      {...otherProps}
+    // as={component}
+    // variant={variant}
+    // className={`morph-text morph-text-${variant} ${className}`}
+    // fontWeight={fontWeight}
+    // lineHeight={lineHeight}
+    // whiteSpace={whiteSpace}
+    // {...otherProps}
+    // useLtrFontFamily={useLtrFontFamily ? "true" : "false"}
     >
-      <>
-        {label && label}
-        {children && children}
-      </>
+      {children}
     </TextStyle>
   );
 }
