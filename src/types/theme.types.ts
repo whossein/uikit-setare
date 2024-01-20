@@ -21,6 +21,7 @@ export interface ICommon {
   name: string;
   isLight: boolean;
   isDark: boolean;
+  autoSetLtrFontFamily: boolean;
 }
 
 export type ITheme = IColors & ICommon;
