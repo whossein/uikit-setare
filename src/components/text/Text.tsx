@@ -4,7 +4,7 @@ import { TextStyle } from "./Text.style";
 
 export default function Text(props: ITextProps) {
   const {
-    variant = "",
+    variant,
     children,
     label,
     component = "div",
@@ -18,16 +18,16 @@ export default function Text(props: ITextProps) {
 
   return (
     <TextStyle
-    // as={component}
-    // variant={variant}
-    // className={`morph-text morph-text-${variant} ${className}`}
-    // fontWeight={fontWeight}
-    // lineHeight={lineHeight}
-    // whiteSpace={whiteSpace}
-    // {...otherProps}
-    // useLtrFontFamily={useLtrFontFamily ? "true" : "false"}
+      as={component}
+      variant={variant}
+      className={`morph-text morph-text-${variant} ${className}`}
+      fontWeight={fontWeight}
+      lineHeight={lineHeight}
+      $whiteSpace={whiteSpace}
+      $useLtrFontFamily={useLtrFontFamily ? "true" : "false"}
+      {...otherProps}
     >
-      {children}
+      {label ? label : children}
     </TextStyle>
   );
 }

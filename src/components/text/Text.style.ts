@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { BaseStyles } from "../base/Base.styles";
-import { ITextProps } from "./Text.types";
+import { ITextProps, TWhiteSpace } from "./Text.types";
 import { TBooleanString } from "../../types";
 import {
   DefaultEnglishFontFamily,
@@ -8,7 +8,12 @@ import {
 } from "../../theme/create-typography";
 
 export const TextStyle = styled(BaseStyles)<
-  Partial<ITextProps & { useLtrFontFamily: TBooleanString }>
+  Partial<
+    ITextProps & {
+      $useLtrFontFamily?: TBooleanString;
+      $whiteSpace?: TWhiteSpace;
+    }
+  >
 >`
   line-height: ${({ lineHeight }) => (lineHeight ? `${lineHeight}px` : "1.5")};
 
@@ -49,10 +54,10 @@ export const TextStyle = styled(BaseStyles)<
     }
   }}
 
-  ${({ useLtrFontFamily = false, autoSetLtrFontFamily = true }) => {
+  ${({ useLtrFontFamily = false, theme }) => {
     const htmlElm = document.querySelector("html");
     const isRtr = htmlElm?.dir === "rtl" || true;
-    if (useLtrFontFamily || (autoSetLtrFontFamily && !isRtr)) {
+    if (useLtrFontFamily || (theme && theme.autoSetLtrFontFamily && !isRtr)) {
       return css`
         font-family: ${DefaultEnglishFontFamily};
       `;

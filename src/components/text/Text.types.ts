@@ -8,12 +8,14 @@ export type TVariant =
   | "caption1"
   | "caption2";
 
+export type TWhiteSpace = "break-spaces" | "normal" | "nowrap";
+
 export interface ITextProps extends IBaseProps {
   variant?: TVariant;
   // children?: React.ReactNode;
   label?: React.ReactNode | string;
   useLtrFontFamily?: boolean;
-  whiteSpace?: "break-spaces" | "normal" | "nowrap";
+  whiteSpace?: TWhiteSpace;
   letterSpacing?: string;
   fontStyle?: "normal" | "italic" | "oblique";
   lineHeight?: number;

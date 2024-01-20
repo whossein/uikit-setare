@@ -3,12 +3,13 @@ import { IBaseProps } from "../base/Base.types";
 
 export interface IIconProps extends IBaseProps {
   type: TListIcon;
-  size?: ISpacing | number;
+  size?: TWidth;
   onClick?: () => void;
-  theme?: "dark" | "light";
   loadSvg?: boolean;
   color?: string;
 }
+
+export type TWidth = string | number | ISpacing;
 
 export const IconList: TListIcon[] = [
   "back-th2",

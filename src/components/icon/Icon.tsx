@@ -12,8 +12,6 @@ const Icon = (props: IIconProps) => {
     // theme: themeProps,
     className = "",
     loadSvg = false,
-    isFixBottom,
-    fillPadding,
     ...other
   } = props;
   const [imageSrc, setImageSrc] = useState<string | null>(null);
@@ -47,7 +45,7 @@ const Icon = (props: IIconProps) => {
   if (imageSrc) {
     return (
       <IconWrapper
-        width={size}
+        $width={size}
         as="div"
         className={`morph-icon ${className}`}
         {...other}

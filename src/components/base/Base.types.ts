@@ -67,7 +67,7 @@ export interface IBaseProps {
   enableIphonePadding?: boolean;
   component?: React.ComponentType | string;
   className?: string;
-  children?: React.ReactNode | JSX.Element | JSX.Element[];
+  children?: React.ReactNode; // | JSX.Element | JSX.Element[];
   style?: any;
   id?: string;
 }

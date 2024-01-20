@@ -17,8 +17,8 @@ const Base = React.forwardRef((props: IBaseProps, ref: any) => {
       as={component}
       ref={ref}
       className={`morph-base ${className}`}
-      isfixbottom={isFixBottom ? "true" : "false"}
-      fillpadding={fillPadding ? "true" : "false"}
+      $isFixBottom={isFixBottom ? "true" : "false"}
+      $fillPadding={fillPadding ? "true" : "false"}
       {...otherProps}
     />
   );

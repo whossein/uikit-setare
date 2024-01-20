@@ -4,19 +4,22 @@ import { IBaseProps } from "./Base.types";
 
 export const BaseStyles = styled.span<
   Partial<
-    IBaseProps & { isfixbottom: TBooleanString; fillpadding: TBooleanString }
+    IBaseProps & {
+      $isFixBottom?: TBooleanString;
+      $fillPadding?: TBooleanString;
+    }
   >
 >`
   box-sizing: border-box;
   max-width: 100%;
-  ${({ isfixbottom, fillpadding }) => {
-    if (isfixbottom === "true") {
+  ${({ $isFixBottom, $fillPadding }) => {
+    if ($isFixBottom === "true") {
       return css`
         position: fixed;
         max-width: 536px;
         left: 50%;
         transform: translateX(-50%);
-        padding: ${fillpadding === "true" ? "20px" : "20px 20px 0px"};
+        padding: ${$fillPadding === "true" ? "20px" : "20px 20px 0px"};
         bottom: 12px;
         @media only screen and (min-device-width: 375px) and (-webkit-min-device-pixel-ratio: 3) {
           bottom: calc(40px - 20px);

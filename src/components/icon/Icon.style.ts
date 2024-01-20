@@ -1,12 +1,11 @@
 import styled, { css } from "styled-components";
 import { BaseStyles } from "../base/Base.styles";
-import { IIconProps } from "./Icon.types";
-import { ISpacing } from "../../types";
+import { IIconProps, TWidth } from "./Icon.types";
 
 export const IconWrapper = styled(BaseStyles)<
-  Partial<IIconProps & { width: string | number | ISpacing }>
+  Partial<IIconProps & { $width?: TWidth }>
 >`
-  min-width: ${({ width }) => width}px;
+  min-width: ${({ $width }) => $width}px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,11 +46,11 @@ export const IconWrapper = styled(BaseStyles)<
   }}
 
   
-${({ width }) => {
-    if (width) {
+${({ $width }) => {
+    if ($width) {
       return css`
         svg {
-          width: ${width}px;
+          width: ${$width}px;
         }
       `;
     }
