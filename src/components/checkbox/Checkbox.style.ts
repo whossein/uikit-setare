@@ -37,6 +37,8 @@ export const CheckBoxContainer = styled(BaseStyles)<
     display: ${({ mode }) => (mode === "box" ? "none" : "block")};
 
     position: absolute;
+    // top: 3px;
+    // right: 7px;
     right: 6px;
     height: 12px;
     width: 12px;
@@ -57,6 +59,11 @@ export const CheckBoxContainer = styled(BaseStyles)<
       transform: rotate(45deg) scale(0);
     }
   }
+
+  // .check-wrapper {
+  //   position: relative;
+  // }
+
   .label {
     width: ${({ mode }) => mode === "box" && "100%"};
     opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};

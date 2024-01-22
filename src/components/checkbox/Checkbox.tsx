@@ -24,11 +24,14 @@ const Checkbox = (props: ICheckbox) => {
         onClick={onClick}
         $hasTick={showTick}
         component={"label"}
+        // {...props}
       >
         <input type="checkbox" {...props} onClick={onCheckBoxClick} />
+        {/* <div className="check-wrapper"> */}
         <div className="checkboxItem" />
         <div className="check" />
-        {label ? <Base className="label">{label}</Base> : null}4444444444444
+        {/* </div> */}
+        {label ? <Base className="label">{label}</Base> : null}
       </CheckBoxContainer>
     </Base>
   );
