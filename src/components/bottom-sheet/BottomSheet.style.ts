@@ -1,15 +1,6 @@
 import styled, { DefaultTheme, css } from "styled-components";
 import { BaseStyles } from "../base/Base.styles";
-
-export interface ITheme {
-  isFullScreen?: boolean;
-}
-
-export interface IChild {
-  headerHeight: number;
-  footerHeight: number;
-  isFullScreen: boolean;
-}
+import { IChild, ITheme } from "./BottomSheet.type";
 
 export const Line = styled.div`
   width: 60px;
@@ -38,8 +29,8 @@ export const Header = styled(BaseStyles)<ITheme>`
   padding: 16px 20px 0px;
   width: 100%;
   height: auto;
-  border-radius: ${({ isFullScreen }) =>
-    isFullScreen ? "0px 0px 0px 0px" : "32px 32px 0px 0px"};
+  border-radius: ${({ $isFullScreen }) =>
+    $isFullScreen ? "0px 0px 0px 0px" : "32px 32px 0px 0px"};
   path {
     fill: ${({ theme }) => theme.borderColor[1]};
   }
@@ -60,18 +51,19 @@ export const Footer = styled.div`
 export const Stage = styled(BaseStyles)<ITheme>`
   width: 100%;
   background-color: ${({ theme }) => theme.bgColor[1]};
-  border-radius: ${({ isFullScreen }) =>
-    isFullScreen ? "0px 0px 0px 0px" : "32px 32px 0px 0px"};
-  max-height: ${({ isFullScreen }) => (isFullScreen ? "100%" : "90%")};
-  height: ${({ isFullScreen }) => isFullScreen && "100%"};
+  border-radius: ${({ $isFullScreen }) =>
+    $isFullScreen ? "0px 0px 0px 0px" : "32px 32px 0px 0px"};
+  max-height: ${({ $isFullScreen }) => ($isFullScreen ? "100%" : "90%")};
+  height: ${({ $isFullScreen }) => $isFullScreen && "100%"};
 `;
 
 export const Children = styled(BaseStyles)<IChild>`
-  max-height: ${({ footerHeight, headerHeight }) =>
-    `calc(100% - ${footerHeight + headerHeight}px)`};
+  display: block;
+  max-height: ${({ $footerHeight, $headerHeight }) =>
+    `calc(100% - ${$footerHeight + $headerHeight}px)`};
   //max-height: max-content;
   overflow-y: auto;
-  height: ${({ isFullScreen }) => isFullScreen && "100%"};
+  height: ${({ $isFullScreen }) => $isFullScreen && "100%"};
   ${({ padding }) => {
     return css`
       padding: ${padding === undefined ? "20px 20px 12px" : padding};

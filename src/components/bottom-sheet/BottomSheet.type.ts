@@ -18,3 +18,13 @@ export interface IPointerModel {
     x: number;
   };
 }
+
+export interface ITheme {
+  $isFullScreen?: boolean;
+}
+
+export interface IChild {
+  $headerHeight: number;
+  $footerHeight: number;
+  $isFullScreen: boolean;
+}

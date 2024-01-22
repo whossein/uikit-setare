@@ -22,7 +22,6 @@ import Icon from "../icon";
 import Text from "../text/Text";
 import Base from "../base";
 
-
 const BottomSheet = (props: IBottomSheetProps) => {
   const {
     isOpen,
@@ -43,25 +42,26 @@ const BottomSheet = (props: IBottomSheetProps) => {
   const [headerH, setheaderH] = useState<number>(0);
   const theme = useTheme();
   const wrapperTagname = "ui-kit-bottom";
-  
 
   useEffect(() => {
     setheaderH(document.querySelector("#headerBottomSheet")?.clientHeight || 0);
   }, [document.querySelector("#headerBottomSheet")?.clientHeight, init]);
 
-//   useEffect(() => {
-//     if (isOpen) {
-//       let element = document.querySelector("#root") as HTMLElement;
-//       element?.style.filter = "blur(3px)";
-//     } else {
-//       let element = document.querySelector("#root") as HTMLElement;
-//       element?.style?.filter = "blur(0px)";
-//     }
-//     return () => {
-//       let element = document.querySelector("#root") as HTMLElement;
-//       element?.style?.filter = "blur(0px)";
-//     };
-//   }, [isOpen]);
+  useEffect(() => {
+    if (document.querySelector("#root") as HTMLElement) {
+      if (isOpen) {
+        let element = document.querySelector("#root") as HTMLElement;
+        element.style.filter = "blur(3px)";
+      } else {
+        let element = document.querySelector("#root") as HTMLElement;
+        element.style.filter = "blur(0px)";
+      }
+      return () => {
+        let element = document.querySelector("#root") as HTMLElement;
+        element.style.filter = "blur(0px)";
+      };
+    }
+  }, [isOpen]);
 
   useLayoutEffect(() => {
     if (!document.querySelector("#" + wrapperTagname)) {
@@ -152,12 +152,12 @@ const BottomSheet = (props: IBottomSheetProps) => {
                 e.stopPropagation();
               }}
               className="draggable"
-              isFullScreen={fullScreen}
+              $isFullScreen={fullScreen}
               ref={innerRef}
             >
               <Header
                 theme={theme}
-                isFullScreen={fullScreen}
+                $isFullScreen={fullScreen}
                 id="headerBottomSheet"
                 ref={headerRef}
                 {...headerStyle}
@@ -179,11 +179,11 @@ const BottomSheet = (props: IBottomSheetProps) => {
                 )}
               </Header>
               <Children
-                isFullScreen={fullScreen}
+                $isFullScreen={fullScreen}
                 bgColor={1}
                 className="children"
-                headerHeight={headerH || 80}
-                footerHeight={footer ? 60 : 0}
+                $headerHeight={headerH || 80}
+                $footerHeight={footer ? 60 : 0}
                 onPointerMove={(e) => {
                   e.stopPropagation();
                   e.preventDefault();

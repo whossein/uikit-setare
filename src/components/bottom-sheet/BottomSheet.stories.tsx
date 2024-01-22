@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import BottomSheet from "./BottomSheet";
 import Button from "../button";
+import { useArgs } from "@storybook/preview-api";
 
 const meta: Meta<typeof BottomSheet> = {
   component: BottomSheet,
@@ -13,21 +14,25 @@ export default meta;
 
 type Story = StoryObj<typeof BottomSheet>;
 
-const ButtonWithHooks = (args) => {
-  // Sets the hooks for both the label and primary props
-  const [isOpen, setIsOpen] = useState(false);
+export const Primary: Story = (args) => {
+  const [, setArgs] = useArgs();
+
+  const onClose = () => {
+    setArgs({ ...args, isOpen: false });
+  };
 
   return (
     <>
-      <Button onClick={() => setIsOpen(true)}>Click Me</Button>
-      <BottomSheet isOpen={isOpen} onClose={() => setIsOpen(false)} {...args}>
-        label
-      </BottomSheet>
+      <Button onClick={() => setArgs({ ...args, isOpen: true })}>
+        Open BottomSheet
+      </Button>
+      <BottomSheet {...args} onClose={onClose} />
     </>
   );
 };
 
-export const Primary: Story = (args) => <ButtonWithHooks {...args} />;
 Primary.args = {
-  children: "label",
+  bodyStyle: { minHeight: 300 },
+  children: "bottom sheet content",
+  title: "bottom sheet title",
 };
