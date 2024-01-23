@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import BottomSheet from "./BottomSheet";
 import Button from "../button";
 import { useArgs } from "@storybook/preview-api";
+import Base from "../base";
 
 const meta: Meta<typeof BottomSheet> = {
   component: BottomSheet,
   title: "UiKit/BottomSheet",
   argTypes: {},
-  tags: ["autodocs"],
+  // tags: ["autodocs"],
 };
 export default meta;
 
@@ -22,12 +23,12 @@ export const Primary: Story = (args) => {
   };
 
   return (
-    <>
+    <Base position="relative">
       <Button onClick={() => setArgs({ ...args, isOpen: true })}>
         Open BottomSheet
       </Button>
       <BottomSheet {...args} onClose={onClose} />
-    </>
+    </Base>
   );
 };
 
