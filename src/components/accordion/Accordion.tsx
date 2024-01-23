@@ -1,12 +1,19 @@
-import React, { forwardRef, useCallback, useId, useState } from "react";
+import React, {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useId,
+  useState,
+} from "react";
 import Flex from "../flex";
 import Text from "../text";
 import Icon from "../icon";
 import { ItemAccordion } from "./Accordion.style";
 import { IAccordion } from "./Accordion.types";
 import Checkbox from "../checkbox";
+import { useSnackBar } from "../snackbar";
 
-const Accordion = forwardRef((props: IAccordion, ref) => {
+const Accordion = forwardRef((props: IAccordion, ref: any) => {
   const {
     elements,
     type = "arrow",
@@ -15,6 +22,7 @@ const Accordion = forwardRef((props: IAccordion, ref) => {
     maxSelect,
     noBorder = false,
   } = props;
+  const snackbar = useSnackBar();
 
   const replaceAllWord = (
     str: string,
@@ -63,8 +71,63 @@ const Accordion = forwardRef((props: IAccordion, ref) => {
     [ID]
   );
 
+  const countCheckbox = (max: number) => {
+    let sum = 0;
+    checkedArray.forEach((i) => {
+      if (typeof i !== "boolean") {
+        sum++;
+      }
+    });
+    if (sum >= max) return true;
+    return false;
+  };
+  const handleCheckbox = (isChecked: boolean, value: any, index: number) => {
+    let checkArrayCash = JSON.parse(JSON.stringify(checkedArray));
+
+    if (isChecked && value) checkArrayCash[index] = value;
+    else checkArrayCash[index] = isChecked;
+    setCheckedArray(checkArrayCash);
+  };
+
+  const handleClick = (param: number) => {
+    let cashArray = JSON.parse(JSON.stringify(collapse));
+    elements.forEach(
+      (i, index) =>
+        (cashArray[index] =
+          param === index ? (cashArray[index] ? false : true) : false)
+    );
+    setCollapse(cashArray);
+  };
+
+  const handleCheckboxEvent = (
+    isChecked: boolean,
+    value: any,
+    index: number
+  ) => {
+    if (isChecked && maxSelect && countCheckbox(maxSelect)) {
+      snackbar({
+        message: `بیشتر از ${maxSelect.toString()} ردیف را نمیتوانید انتخاب کنید!`,
+      });
+
+      return null;
+    } else {
+      handleCheckbox(isChecked, value, index);
+    }
+  };
+
+  useEffect(() => {
+    setCollapse([]);
+    setCheckedArray([]);
+  }, []);
+
+  useEffect(() => {
+    let resultArray = JSON.parse(JSON.stringify(checkedArray));
+    if (resultArray && onChange) onChange(resultArray);
+    //eslint-disable-next-line
+  }, [checkedArray]);
+
   return (
-    <Flex flexDirection="column">
+    <Flex flexDirection="column" height="100%">
       {elements.map((item, index) => (
         <ItemAccordion
           $noBorder={noBorder}
@@ -82,7 +145,7 @@ const Accordion = forwardRef((props: IAccordion, ref) => {
           }
         >
           <Flex
-            // onClick={() => handleClick(index)}
+            onClick={() => handleClick(index)}
             padding="12px 16px"
             width={"100%"}
             alignItems="center"
@@ -99,13 +162,13 @@ const Accordion = forwardRef((props: IAccordion, ref) => {
                 <Checkbox
                   margin="0px 0px 0px 8px"
                   checked={Boolean(checkedArray[index])}
-                  // onChange={(e) =>
-                  //   handleCheckboxEvent(
-                  //     e.currentTarget.checked,
-                  //     e.currentTarget.value,
-                  //     index
-                  //   )
-                  // }
+                  onChange={(e) =>
+                    handleCheckboxEvent(
+                      e.currentTarget.checked,
+                      e.currentTarget.value,
+                      index
+                    )
+                  }
                   value={item.value ? item.value : ""}
                 />
               )}
@@ -113,14 +176,14 @@ const Accordion = forwardRef((props: IAccordion, ref) => {
                 <Text fontSize={12}>{item.title}</Text>
               ) : (
                 <Flex
-                  // onClick={(e) => {
-                  //   e.stopPropagation();
-                  //   handleCheckboxEvent(
-                  //     !Boolean(checkedArray[index]),
-                  //     item.value,
-                  //     index
-                  //   );
-                  // }}
+                  onClick={(e) => {
+                    // e.stopPropagation();
+                    handleCheckboxEvent(
+                      !Boolean(checkedArray[index]),
+                      item.value,
+                      index
+                    );
+                  }}
                   fullWidth
                 >
                   {item.title}

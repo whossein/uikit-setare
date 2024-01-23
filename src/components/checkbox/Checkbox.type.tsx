@@ -12,6 +12,7 @@ export interface ICheckbox extends TPureCheckbox {
   showTick?: boolean;
   mode?: "classic" | "box";
   disabled?: boolean;
+  labelProps?: IBaseProps;
 }
 
 export type TCheckBoxClick = (

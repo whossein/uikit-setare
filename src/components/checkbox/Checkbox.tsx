@@ -14,6 +14,10 @@ const Checkbox = (props: ICheckbox) => {
     mode = "classic",
     width,
     disabled = false,
+    children,
+    labelProps,
+    borderColor = 4,
+    ...otherProps
   } = props;
 
   return (
@@ -24,14 +28,20 @@ const Checkbox = (props: ICheckbox) => {
         onClick={onClick}
         $hasTick={showTick}
         component={"label"}
-        // {...props}
+        $labelBorder={borderColor}
+        {...otherProps}
       >
-        <input type="checkbox" {...props} onClick={onCheckBoxClick} />
-        {/* <div className="check-wrapper"> */}
-        <div className="checkboxItem" />
-        <div className="check" />
-        {/* </div> */}
-        {label ? <Base className="label">{label}</Base> : null}
+        <input type="checkbox" {...otherProps} onClick={onCheckBoxClick} />
+        <div className="check-wrapper">
+          <div className="checkboxItem" />
+          <div className="check" />
+        </div>
+        {label ? (
+          <Base className="label" {...labelProps}>
+            {label}
+          </Base>
+        ) : null}
+        {children}
       </CheckBoxContainer>
     </Base>
   );

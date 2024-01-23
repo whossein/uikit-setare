@@ -31,10 +31,17 @@ Box.args = {
   ),
   mode: "box",
   checked: false,
-  padding: "12px",
 };
 
-export const Classic: Story = (args) => <Checkbox {...args} />;
+export const Classic: Story = (args) => {
+  const [, setArgs] = useArgs();
+
+  const handleCheck = () => {
+    setArgs({ ...args, checked: !args.checked });
+  };
+
+  return <Checkbox {...args} onClick={handleCheck} />;
+};
 Classic.args = {
   label: (
     <Text width="100%" variant="body" fontWeight="regular">

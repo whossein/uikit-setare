@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { ICheckbox } from "./Checkbox.type";
 import { BaseStyles } from "../base/Base.styles";
+import { IBorderColor } from "../../types";
 
 /* 
 attrs(
@@ -14,7 +15,7 @@ attrs(
 */
 
 export const CheckBoxContainer = styled(BaseStyles)<
-  Partial<ICheckbox & { $hasTick?: boolean }>
+  Partial<ICheckbox & { $hasTick?: boolean; $labelBorder?: keyof IBorderColor }>
 >`
   display: flex;
   font-size: 14px;
@@ -37,9 +38,8 @@ export const CheckBoxContainer = styled(BaseStyles)<
     display: ${({ mode }) => (mode === "box" ? "none" : "block")};
 
     position: absolute;
-    // top: 3px;
-    // right: 7px;
-    right: 6px;
+    top: 3px;
+    right: 7px;
     height: 12px;
     width: 12px;
     border-radius: 2px;
@@ -60,9 +60,9 @@ export const CheckBoxContainer = styled(BaseStyles)<
     }
   }
 
-  // .check-wrapper {
-  //   position: relative;
-  // }
+  .check-wrapper {
+    position: relative;
+  }
 
   .label {
     width: ${({ mode }) => mode === "box" && "100%"};
@@ -72,10 +72,10 @@ export const CheckBoxContainer = styled(BaseStyles)<
   }
   input {
     &:checked ~ .label {
-      border: ${({ theme, mode }) =>
-        mode === "box" && `3px solid ${theme.borderColor[4]}`};
+      border: ${({ theme, mode, $labelBorder }) =>
+        mode === "box" && `3px solid ${theme.borderColor[$labelBorder as keyof IBorderColor]}`};
     }
-    &:checked ~ .check {
+    &:checked ~ .check-wrapper .check {
       background-color: ${({ theme }) => theme.bgColor[5]};
       &::after {
         transform: rotate(45deg) scale(1);
