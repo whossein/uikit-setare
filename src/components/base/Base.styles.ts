@@ -10,6 +10,7 @@ export const BaseStyles = styled.span<
     }
   >
 >`
+  user-select: none;
   box-sizing: border-box;
   max-width: 100%;
   ${({ $isFixBottom, $fillPadding }) => {

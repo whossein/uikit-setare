@@ -6,6 +6,7 @@ import { useGetTheme } from "../../hooks";
 import { ITheme, TThemeMode } from "../../types";
 import { dark, light } from "../../theme/default";
 import { isSupportMatchMedia } from "../../utils";
+import { ISnackBar, SnackBarContainer, SnackbarContext } from "../snackbar";
 
 const lightTheme = createTheme(light);
 const darkTheme = createTheme(dark);
@@ -21,6 +22,15 @@ export const UikitProvider = (props: IThemeProvider) => {
   } = props;
   const osTheme = useGetTheme();
   const [changeTheme, setChangeTheme] = useState<TThemeMode>(osTheme);
+  // snackbar
+  const [snackbarState, setSnackbarState] = useState<ISnackBar[]>([]);
+  const importSnackbar = (param: ISnackBar) => {
+    setSnackbarState([...snackbarState, param]);
+  };
+  const fillSnackbar = (param: ISnackBar[]) => {
+    setSnackbarState(param);
+  };
+  // snackbar end
 
   const activeTheme = useMemo<ITheme>(() => {
     let result: ITheme = themeLight;
@@ -68,7 +78,22 @@ export const UikitProvider = (props: IThemeProvider) => {
     };
   }, []);
 
-  return <Provider theme={activeTheme}> {children} </Provider>;
+  return (
+    <Provider theme={activeTheme}>
+      <SnackbarContext.Provider
+        value={{
+          snackbarItem: snackbarState,
+          setSnackbarItem: importSnackbar,
+          fillSnackbarItem: fillSnackbar,
+        }}
+      >
+        <>
+          <SnackBarContainer />
+          {children}
+        </>
+      </SnackbarContext.Provider>
+    </Provider>
+  );
 };
 
 export default UikitProvider;
