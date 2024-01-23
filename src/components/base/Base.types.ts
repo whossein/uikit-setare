@@ -13,6 +13,7 @@ import {
 } from "../../types";
 import { MouseEventHandler } from "react";
 
+export type TBaseClick = (e: MouseEventHandler) => void;
 export interface IBaseProps {
   mt?: ISpacing;
   mb?: ISpacing;
@@ -36,7 +37,7 @@ export interface IBaseProps {
   transparentColor?: keyof ITransparent;
   dir?: "ltr" | "rtl";
   textAlign?: "right" | "left" | "center" | "justify";
-  onClick?: (e: MouseEventHandler) => void;
+  onClick?: TBaseClick;
   onScroll?: (e: React.UIEvent<HTMLElement>) => void;
   onPointerMove?: (e: React.UIEvent<HTMLElement>) => void;
   onDrag?: (e: React.UIEvent<HTMLElement>) => void;
