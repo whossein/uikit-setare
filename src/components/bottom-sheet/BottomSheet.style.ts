@@ -82,7 +82,9 @@ export const parentStyle: React.CSSProperties = {
   zIndex: "999",
   opacity: 0,
   top: 0,
-  left: 0,
+  maxWidth: 576,
+  left: "50%",
+  transform: "translateX(-50%)",
 };
 export const childStyle: React.CSSProperties = {
   display: "flex",
