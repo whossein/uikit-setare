@@ -8,4 +8,5 @@
 - add storybook for SnackBar
 - write test for snackBar
 - check maxSelect property in accordion component
+- check modal storybook (style problem)
 
