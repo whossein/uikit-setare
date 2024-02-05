@@ -38,7 +38,7 @@ export interface IInput {
   onEnter?: (
     value?: string,
     status?: boolean,
-    event?: React.ChangeEvent<HTMLInputElement>
+    event?: React.KeyboardEvent<HTMLInputElement>
   ) => void;
   name?: string;
 }
@@ -58,9 +58,7 @@ export type InputModeTypes =
   | "url"
   | "none";
 
-export type mainType = TPureInput & IInput;
-
-export interface IInputStyle extends mainType {
+export interface IInputStyle extends IInput {
   $hasStartIcon?: boolean;
   $disabled?: boolean;
 }

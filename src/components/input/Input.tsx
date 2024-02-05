@@ -12,6 +12,7 @@ import {
   removeNonNumeric,
 } from "../../utils/Helpers";
 import { addCommas, digitsFaToEn } from "@persian-tools/persian-tools";
+import Icon from "../icon";
 
 const Input = forwardRef((props: IInput & TPureInput, ref: any) => {
   const {
@@ -88,22 +89,22 @@ const Input = forwardRef((props: IInput & TPureInput, ref: any) => {
     currentRef?.current?.blur();
   }
 
-  //   const renderHelpIcon = () => {
-  //     switch (helpIcon) {
-  //       case "Error":
-  //         return <ErrorIcon className="morph-input-error-icon" />;
-  //       case "Info":
-  //         return <NeutralIcon className="morph-input-info-icon" />;
-  //       case "Success":
-  //         return <SuccessIcon className="morph-input-success-icon" />;
-  //     }
+  const renderHelpIcon = () => {
+    switch (helpIcon) {
+      case "Error":
+        return <Icon type="Error" loadSvg />;
+      case "Info":
+        return <Icon type="Neutral" loadSvg />;
+      case "Success":
+        return <Icon type="Yes" loadSvg />;
+    }
 
-  //     if (errorState.active) {
-  //       return <ErrorIcon className="morph-input-error-icon" />;
-  //     }
+    if (errorState.active) {
+      return <Icon type="Error" loadSvg />;
+    }
 
-  //     return <></>;
-  //   };
+    return <></>;
+  };
 
   const handleHelpTextColor = (): keyof ITextColor => {
     let c = helpTextColor || helpIcon;
@@ -215,7 +216,6 @@ const Input = forwardRef((props: IInput & TPureInput, ref: any) => {
   const isFocusedMode =
     isFocused || Boolean(valueText) || shrink || placeholder;
   const inputValue = value;
-  // @ts-ignore
   const inputValueLength = inputValue ? inputValue?.length : 0;
 
   useEffect(() => {
@@ -246,6 +246,7 @@ const Input = forwardRef((props: IInput & TPureInput, ref: any) => {
         borderColor={handleBorderColor()}
         borderRadius={borderRadius}
         padding={padding ? padding : "0px 20px"}
+        height={otherProps.height}
       >
         {startIcon && (
           <div className={"morph-input-start-icon morph-input-start-end"}>
@@ -323,7 +324,7 @@ const Input = forwardRef((props: IInput & TPureInput, ref: any) => {
         {!notEntryOnError && helpTextShow && (
           <Flex flex={1} justifyContent="flex-start">
             <Flex className="morph-input-helper-icon" ml={4}>
-              {/* {renderHelpIcon()} */}
+              {renderHelpIcon()}
             </Flex>
             <Text
               variant="caption1"
