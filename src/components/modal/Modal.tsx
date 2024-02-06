@@ -53,44 +53,44 @@ const Modal = (props: IModal) => {
     },
   };
 
-  //   useLayoutEffect(() => {
-  //     if (!document.querySelector("#ui-kit-modal")) {
-  //       let domModal = document.createElement("div");
-  //       domModal.setAttribute("id", "ui-kit-modal");
-  //       document.querySelector("body")?.append(domModal);
-  //     }
-  //     return () => {
-  //       let element = document.querySelector("#root") as HTMLElement;
-  //       element.style.filter = "";
-  //       document.querySelector("#ui-kit-modal")?.remove();
-  //     };
-  //   }, []);
+  useLayoutEffect(() => {
+    if (!document.querySelector("#ui-kit-modal")) {
+      let domModal = document.createElement("div");
+      domModal.setAttribute("id", "ui-kit-modal");
+      document.querySelector("body")?.append(domModal);
+    }
+    return () => {
+      let element = document.querySelector("#root") as HTMLElement;
+      element.style.filter = "";
+      document.querySelector("#ui-kit-modal")?.remove();
+    };
+  }, []);
 
-  //   useEffect(() => {
-  //     let element = document.querySelector("#root") as HTMLElement;
+  useEffect(() => {
+    let element = document.querySelector("#root") as HTMLElement;
 
-  //     if (visible) {
-  //       controls.start("show");
-  //       if (element) {
-  //         element.style.filter = "blur(4px)";
-  //       }
-  //     } else {
-  //       if (element) {
-  //         element.style.filter = "";
-  //       }
-  //     }
-  //   }, [visible, controls]);
+    if (visible) {
+      controls.start("show");
+      if (element) {
+        element.style.filter = "blur(4px)";
+      }
+    } else {
+      if (element) {
+        element.style.filter = "";
+      }
+    }
+  }, [visible, controls]);
 
-  //   useEffect(() => {
-  //     if (isOpen) {
-  //       setVisible(true);
-  //     } else {
-  //       let element = document.querySelector("#root") as HTMLElement;
-  //       element.style.filter = "";
-  //       setVisible(false);
-  //       controls.start("hide");
-  //     }
-  //   }, [isOpen, controls]);
+  useEffect(() => {
+    if (isOpen) {
+      setVisible(true);
+    } else {
+      let element = document.querySelector("#root") as HTMLElement;
+      element.style.filter = "";
+      setVisible(false);
+      controls.start("hide");
+    }
+  }, [isOpen, controls]);
 
   if (document.getElementById("ui-kit-modal")) {
     if (!visible) return <></>;

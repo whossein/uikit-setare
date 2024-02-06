@@ -23,7 +23,7 @@ export const Primary: Story = (args) => {
   };
 
   return (
-    <Base position="relative">
+    <Base position="relative" id="root">
       <Button onClick={() => setArgs({ ...args, isOpen: true })}>
         Open Modal
       </Button>
