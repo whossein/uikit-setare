@@ -9,4 +9,7 @@ export { default as Icon } from "./icon";
 export { default as BottomSheet } from "./bottom-sheet";
 export { default as Text } from "./text";
 export { default as TextField } from "./text-field";
+export { default as Input } from "./input";
+export { default as TabBar } from "./tab-bar";
+export { default as modal } from "./modal";
 export { default as UikitProvider } from "./uikit-provider";
