@@ -17,7 +17,7 @@
     "rootDir": "./src",
     "paths": {}
   },
-  "include": ["src", "custom.d.ts", "src/types/styled.d.ts"],
+  "include": ["src", "src/custom.d.ts", "src/types/styled.d.ts"],
   "exclude": [
     "dist",
     "node_modules",
