@@ -5,8 +5,8 @@ import dts from "rollup-plugin-dts";
 import terser from "@rollup/plugin-terser";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import json from "@rollup/plugin-json";
-// import copy from "rollup-plugin-copy";
-// import images from "@rollup/plugin-image";
+import copy from "rollup-plugin-copy";
+import image from "@rollup/plugin-image";
 // import url from "@rollup/plugin-url";
 
 const packageJson = require("./package.json");
@@ -29,17 +29,16 @@ export default [
     plugins: [
       peerDepsExternal(),
       resolve(),
-      // copy({
-      //   targets: [
-      //     // { src: 'assets/images/**/*', dest: 'dist/public/images' },
-      //     {
-      //       src: "src/components/image/holder-images",
-      //       dest: "dist/",
-      //     },
-      //   ],
-      // }),
-
-      // images(),
+      copy({
+        targets: [
+          // { src: 'assets/images/**/*', dest: 'dist/public/images' },
+          {
+            src: "src/components/icon/icons",
+            dest: "dist/esm",
+          },
+        ],
+      }),
+      image(),
       // url({
       //   // Where to put files
       //   destDir: "dist/assets/",
@@ -55,7 +54,7 @@ export default [
       // }),
       commonjs(),
       json(),
-      typescript({ tsconfig: "./tsconfig.json" }),
+      typescript({ tsconfig: "tsconfig.json" }),
       terser(),
     ],
     external: ["react", "react-dom", "styled-components"],

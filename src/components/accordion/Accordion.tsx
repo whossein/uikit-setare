@@ -127,7 +127,7 @@ const Accordion = forwardRef((props: IAccordion, ref: any) => {
   }, [checkedArray]);
 
   return (
-    <Flex flexDirection="column" height="100%">
+    <Flex flexDirection="column">
       {elements.map((item, index) => (
         <ItemAccordion
           $noBorder={noBorder}
