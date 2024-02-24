@@ -13,7 +13,7 @@ const Flex = React.forwardRef((props: IFlex, ref: any) => {
     loading = false,
     className = "",
     children,
-    height = 20,
+    height,
     ...otherProps
   } = props;
 
