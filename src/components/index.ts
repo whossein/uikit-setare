@@ -12,4 +12,7 @@ export { default as TextField } from "./text-field";
 export { default as Input } from "./input";
 export { default as TabBar } from "./tab-bar";
 export { default as modal } from "./modal";
+export { default as Container } from "./container";
+export { default as Accordion } from "./accordion";
+export { default as Image } from "./image";
 export { default as UikitProvider } from "./uikit-provider";
